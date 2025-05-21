@@ -1,2 +1,5 @@
 # Devcontainer environment variables
 .devcontainer/devcontainer.env
+
+# Personal files
+kadykov-*
