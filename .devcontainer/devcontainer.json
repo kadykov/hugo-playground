@@ -1,0 +1,36 @@
+{
+  "name": "${localWorkspaceFolderBasename}-devcontainer",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+    "--env-file",
+    ".devcontainer/devcontainer.env"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": true
+    }
+  },
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "saoudrizwan.claude-dev"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "source": "${localWorkspaceFolderBasename}-vscode-global-storage",
+      "target": "/home/vscode/.vscode-server/data/User/globalStorage",
+      "type": "volume"
+    }
+  ]
+}
